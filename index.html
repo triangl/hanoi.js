@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tours de Hanoï</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div id="column" style="display: none;">
+            <div id="towersContainer">
+                <button id="towerButton1"></button>
+                <button id="towerButton2"></button>
+                <button id="towerButton3"></button>
+            </div>
+            <canvas id="draw"></canvas>
+        </div>
+        <script src="js/drawing.js" type="text/javascript"></script>
+        <script src="js/tower.js" type="text/javascript"></script>
+        <script src="js/hanoi.js" type="text/javascript"></script>
+        <script src="js/hanoi_gui.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var game = new Hanoi();
+            var userInput = parseInt(prompt('Nombre de disques ? '));
+            var nbDisks = (userInput > 1 && userInput < 9) ? userInput : 3;
+            game.init(nbDisks);
+            var gui = new HanoiGui();
+            gui.initGame(game);
+        </script>
+    </body>
+</html>
